@@ -47,14 +47,33 @@ namespace Serilog
             string databaseUsername = null,
             string databasePassword = null)
         {
-            if (loggerConfiguration == null) throw new ArgumentNullException("loggerConfiguration");
-            if (databaseUrl == null) throw new ArgumentNullException("databaseUrl");
-            if (databaseUsername != null && databasePassword == null) throw new ArgumentNullException("databasePassword");
-            if (databaseUsername == null && databasePassword != null) throw new ArgumentNullException("databaseUsername");
+            if (loggerConfiguration == null)
+            {
+                throw new ArgumentNullException("loggerConfiguration");
+            }
+            if (databaseUrl == null)
+            {
+                throw new ArgumentNullException("databaseUrl");
+            }
+            if (databaseUsername != null && databasePassword == null)
+            {
+                throw new ArgumentNullException("databasePassword");
+            }
+            if (databaseUsername == null && databasePassword != null)
+            {
+                throw new ArgumentNullException("databaseUsername");
+            }
 
             var defaultedPeriod = period ?? CouchDBSink.DefaultPeriod;
+
             return loggerConfiguration.Sink(
-                new CouchDBSink(databaseUrl, batchPostingLimit, defaultedPeriod, formatProvider, databaseUsername, databasePassword),
+                new CouchDBSink(
+                    databaseUrl, 
+                    batchPostingLimit, 
+                    defaultedPeriod, 
+                    formatProvider, 
+                    databaseUsername, 
+                    databasePassword),
                 restrictedToMinimumLevel);
         }
     }

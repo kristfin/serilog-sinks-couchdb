@@ -1,11 +1,10 @@
 ### Serilog.Sinks.CouchDB
 
-[![Build status](https://ci.appveyor.com/api/projects/status/i0u84k30h2ab3lbp/branch/master?svg=true)](https://ci.appveyor.com/project/serilog/serilog-sinks-couchdb/branch/master)
+Forked from https://github.com/serilog/serilog-sinks-couchdb
 
 A Serilog sink that writes events to Apache [CouchDB](http://couchdb.org).
 
-**Package** - [Serilog.Sinks.CouchDB](http://nuget.org/packages/serilog.sinks.couchdb)
-| **Platforms** - .NET 4.5
+**Platforms** - NetStandard 1.4
 
 You'll need to create a database on your CouchDB server. In the example shown, it is called `log`.
 
